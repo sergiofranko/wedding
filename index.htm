@@ -9,6 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=The+Nautigal:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -39,22 +42,43 @@
             <div class="container-countdown">
                 <div class="item-countdown">
                   <div><span class="countdown" id="days"></span></div> 
-                  <div class="label">días</div> 
+                  <div class="label">D</div> 
                 </div>
                 <div class="item-countdown">
                   <div><span class="countdown" id="hours"></span></div> 
-                  <div class="label">hrs</div>
+                  <div class="label">H</div>
                 </div>
                 <div class="item-countdown">
                   <div><span class="countdown" id="minutes"></span></div> 
-                  <div class="label">min</div>
+                  <div class="label">M</div>
                 </div>
                 <div class="item-countdown">
                   <div><span class="countdown" id="seconds"></span></div> 
-                  <div class="label">s</div>
+                  <div class="label">S</div>
                 </div>
               </div>
         </header>
+
+        <hr>
+        <!--GALERIA DE IMAGENES-->
+        <section id="galery">
+            <img src="./images/galery/img1.jpg" alt="Galeria">
+            <img src="./images/galery/img2.jpg" alt="Galeria">
+            <img src="./images/galery/img3.jpg" alt="Galeria">
+            <img src="./images/galery/img4.jpg" alt="Galeria">
+            <img src="./images/galery/img5.jpg" alt="Galeria">
+            <img src="./images/galery/img6.png" alt="Galeria">
+            <img src="./images/galery/img7.jpg" alt="Galeria">
+            <img src="./images/galery/img8.jpg" alt="Galeria">
+        </section>
+        <section id="main-container-galery">
+            <div id="internal-container">
+                <img src="./images/galery/img1.jpg" alt="Galeria" id="active-image">
+                <button id="btn-close" type="button">X</button>
+                <button id="btn-back" type="button">&lt;</button>
+                <button id="btn-next" type="button">&gt;</button>
+            </div>
+        </section>
     </div>
 
     <script src="main.js"></script>

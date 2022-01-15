@@ -45,4 +45,53 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCountdown();
     // Refresh every second
     setInterval(updateCountdown, MILLISECONDS_OF_A_SECOND);
+
+    /*VARIABLES*/
+    const btnClose = document.querySelector('#btn-close');
+    const btnBack = document.querySelector('#btn-back');
+    const btnNext = document.querySelector('#btn-next');
+    const images = document.querySelectorAll('#galery img');
+    const lightbox = document.querySelector('#main-container-galery');
+    const activeImage = document.querySelector('#active-image');
+    let imageIndex = 0;
+
+    /*Abrimos el Lightbox */
+    const openLightbox = (event) => {
+        activeImage.src = event.target.src;
+        lightbox.style.display = 'flex';
+        imageIndex = Array.from(images).indexOf(event.target);
+    };
+
+    images.forEach((image) => {
+        image.addEventListener('click', openLightbox);
+    });
+
+    /*Cerramos el Ligthbox*/
+    btnClose.addEventListener('click', () => {
+        lightbox.style.display = 'none';
+    })
+
+    /*Imagen siguiente*/
+
+    const nextImage = () => {
+        if (imageIndex === images.length -1) {
+            imageIndex = -1;
+        }
+        activeImage.src = images[imageIndex + 1].src;
+        imageIndex++;
+    };
+
+    btnNext.addEventListener('click', nextImage);
+
+    /*Imagen anterior*/
+
+    const backImage = () => {
+        if (imageIndex === 0){
+            imageIndex = images.length;
+        }
+        activeImage.src = images[imageIndex - 1].src;
+        imageIndex--;
+    };
+
+    btnBack.addEventListener('click', backImage);
 });
