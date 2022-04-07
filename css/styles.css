@@ -254,6 +254,24 @@ button {
     padding: 3px;
 }
 
+/*CÓDIGO DE VESTUARIO*/
+.dress-code {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dress-code img {
+    width: 30%;
+}
+
+.dress-code p {
+    font-size: 25px;
+}
+
+
+/*UBICACIÓN*/
 .location {
     display: flex;
     flex-wrap: wrap;
