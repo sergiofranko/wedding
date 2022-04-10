@@ -266,10 +266,25 @@ button {
     width: 30%;
 }
 
-.dress-code p {
-    font-size: 25px;
+.dress-code h1 {
+    font-size: 45px;
 }
 
+.dress-code p {
+    font-size: 40px;
+}
+
+/*CONFIRMACIÓN ASISTENCIA*/
+table.dataTable thead {
+    background-color:#D6DBDF;
+    color:#000000;
+    font-size: 30px;
+    font-family: 'Tangerine', cursive !important;
+}  
+
+table.dataTable tbody {
+    font-size: 28px;
+}
 
 /*UBICACIÓN*/
 .location {

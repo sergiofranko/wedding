@@ -1,5 +1,5 @@
 $(document).ready(function() {   
-    var url = 'http://localhost:3000/api/articulos';
+    var url = 'http://localhost:3000/invitados';
 
      $('#tablaArticulos').DataTable({            
          "ajax":{
@@ -8,15 +8,10 @@ $(document).ready(function() {
          },
          "columns":[
              {"data":"id"},
-             {"data":"descripcion"},
-             {"data":"precio"},
-             {"data":"stock"},
+             {"data":"nombre"},
+             {"data":"apellido"},
+             {"data":"confirmar"},
          ],
-         "columnDefs":[{
-             "targets":[2],
-             render(v){
-                 return Number(v).toFixed(2)
-             }
-         }]
+         "columnDefs":[]
      });
 });
