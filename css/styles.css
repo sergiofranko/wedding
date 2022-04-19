@@ -323,20 +323,80 @@ button {
 }
 
 /*CONFIRMACIÓN ASISTENCIA*/
+
+.assistance-confirmation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.assistance-confirmation .guest-search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    margin: auto;
+}
+
+#name {
+    width: 70%;
+    height: 40px;
+    font-size: 30px;
+}
+
+#submit {
+    width: 30%;
+    height: 40px;
+    background-color: #263b2d72;
+    font-size: 30px;
+}
+
+.assistance-confirmation .guest-result {
+    margin: auto;
+    width: 80%;
+}
+
+.assistance-confirmation .guest-result table {
+    margin: 20px auto;
+    border:#000000 1px solid;
+    width: 80%;
+}
+
+.assistance-confirmation .guest-result table td {
+    text-align: center;
+    font-size: 35px;
+    background-color: #9f949446;
+}
+
+.assistance-confirmation .guest-result table td input{
+    margin: auto;
+    width: 40%;
+    font-size: 30px;
+    background-color: #263b2d72;
+}
+
+.assistance-confirmation .guest-result table th, td {
+    border:#000000 1px solid;
+}
+
+.assistance-confirmation .guest-result table th {
+    background-color: #263b2d72;
+    font-size: 40px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.assistance-confirmation input {
+    width: 30%;
+    font-size: 30px;
+    background-color: #ffffff72;
+}
+
 .assistance-confirmation h1 {
     text-align: center;
     font-size: 45px;
-}
-
-table.dataTable thead {
-    background-color: #D6DBDF;
-    color: #000000;
-    font-size: 30px;
-    font-family: 'Tangerine', cursive !important;
-}
-
-table.dataTable tbody {
-    font-size: 28px;
 }
 
 /*UBICACIÓN*/
@@ -361,8 +421,8 @@ table.dataTable tbody {
 
 .map {
     border: #000000 1px solid;
-    width: 400px;
-    height: 300px;
+    width: 100%;
+    height: 100%;
 }
 
 /*Footer*/
@@ -649,12 +709,41 @@ li {
         font-size: 25px;
     }
 
-    table.dataTable thead {
-        font-size: 18px;
+    .assistance-confirmation .guest-search {
+        display: flex;
+        flex-direction: column;
     }
 
-    table.dataTable tbody {
-        font-size: 16px;
+    #name {
+        width: 50%;
+        height: 25px;
+        font-size: 20px;
+    }
+
+    #submit {
+        width: 20%;
+        height: 25px;
+        font-size: 20px;
+    }
+
+    .assistance-confirmation .guest-result table th {
+        font-size: 25px;
+    }
+
+    .assistance-confirmation .guest-result table td {
+        font-size: 20px;
+    }
+
+    .assistance-confirmation .guest-result table td input{
+        width: 50%;
+        height: 30px;
+        font-size: 20px;
+    }
+
+    .assistance-confirmation input {
+        width: 30%;
+        font-size: 20px;
+        background-color: #ffffff72;
     }
 
     /*UBICACIÓN*/

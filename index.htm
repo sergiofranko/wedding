@@ -241,7 +241,23 @@
         <!--CONFIRMACIÓN ASISTENCIA-->
         <section class="assistance-confirmation" id="assistance-confirmation">
             <h1>Confirma Tu Asistencia</h1>
-            <div class="container-fluid">
+            <form class="guest-search" action="javascript:void(0);" onsubmit="buscarInvitado(this)">
+                <input type="text" name="name" id="name" placeholder="Ingresa tu nombre" required>
+                <input type="submit" id="submit" value="Buscar">
+            </form>
+            <div class="guest-result" id="guest-result">
+                <table>
+                    <thead>
+                        <th>Nombre</th>
+                        <th>¿Asistirás?</th>
+                    </thead>
+                    <tbody id="body-result">
+
+                    </tbody>
+                </table>
+                <input type="button" onclick="limpiarTabla()" value="Limpiar">
+            </div>
+            <!-- <div class="container-fluid">
                 <div class="row">
                     <div class="col">
                         <table id="tablaArticulos" class="table table-striped table-bordered" style="width:100%">
@@ -258,7 +274,7 @@
                         </table>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </section>
 
         <div class="separator">
@@ -341,6 +357,7 @@
         </div>
     </footer>
 
+    <script src="./js/invitados.js"></script>
     <script src="./js/index.js"></script>
     <script src="./js/countdown.js"></script>
     <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
