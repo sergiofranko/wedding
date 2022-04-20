@@ -1,4 +1,4 @@
-const URL = 'http://localhost:3000/invitados';
+const URL = '/invitados';
 
 function registarInvitado(event) {
     
