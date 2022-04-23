@@ -1,0 +1,128 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Tangerine', cursive;
+}
+
+body {
+    background-color: #f3f3f3;
+}
+
+.container,
+.guest-registry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 80%;
+    height: auto;
+    margin: 5% auto;
+
+}
+
+.container h1 {
+    font-size: 50px;
+    margin-bottom: 3%;
+}
+
+.guest-registry .input-text input{
+    width: 45%;
+    font-size: 25px;
+    margin: 2%;
+}
+
+.input-submit{
+    text-align: center;
+    margin: 3% auto;
+}
+
+.input-submit input {
+    font-size: 25px;
+}
+
+.container hr {
+    line-height: 2px;
+    width: 80%;
+    margin: 3% auto;
+}
+
+/*TABLA DE INVITADOS*/
+.result {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+
+.result h1 {
+    margin: 2% auto;
+}
+
+.result .buttons {
+    width: 80%;
+    margin: 5% auto;
+}
+
+.result .buttons input {
+    width: 30%;
+    margin: auto 1%;
+    font-size: 25px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.result .buttons input.btn-all {
+    background-color: #3cb9f7;
+    color: #f3f3f3;
+}
+
+.result .buttons input.btn-not {
+    background-color: #ff0e0eb6;
+    color: #f3f3f3;
+}
+
+.result .buttons input.btn-yes {
+    background-color: #0fad63df;
+    color: #f3f3f3;
+}
+
+.result .table {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.result .table table{
+    width: 100%;
+    background-color: rgba(214, 218, 216, 0.863);
+}
+
+.result .table table, thead, th, tr, td {
+    border: #215e3f 1px solid;
+}
+
+.result .table table thead th {
+    font-size: 23px;
+    font-weight: bolder;
+}
+
+.result .table table tbody tr td {
+    font-size: 20px;
+}
+
+.result .table input {
+    background-color: #fdfcfc;
+    color: #215e3f;
+    margin: 5% auto;
+    width: 35%;
+    font-size: 25px;
+    border-radius: 5px;
+    border: #215e3f 1px solid;
+    cursor: pointer;
+}
