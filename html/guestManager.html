@@ -4,14 +4,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/guestManager.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap" rel="stylesheet">
     <title>Gestión de invitados</title>
 </head>
 <body>
-    <form id="formInvitado" action="javascript:void(0);" onsubmit="registarInvitado(this)">
-        <input type="text" name="nombre" placeholder="Nombre" required>
-        <input type="text" name="apellido" placeholder="Apellido" required>
-        <input type="submit" value="Registrar">
-    </form>
+    <div class="container">
+        <h1>Nuestro Matrimonio</h1>
+        <div class="guest-registry">
+            <h1>Registro de invitados</h1>
+            <form id="formInvitado" action="javascript:void(0);" onsubmit="registarInvitado(this)">
+                <div class="input-text">
+                    <input type="text" name="nombre" placeholder="Nombre" required>
+                    <input type="text" name="apellido" placeholder="Apellido" required>
+                </div>
+                <div class="input-submit">
+                    <input type="submit" value="Registrar">
+                </div>
+            </form>
+        </div>
+        <hr>
+        <div class="result">
+            <h1>Invitados</h1>
+            <div class="buttons">
+                <input type="button" class="btn-all" value="Todos">
+                <input type="button" class="btn-not" value="Sin Confirmar">
+                <input type="button" class="btn-yes" value="Confirmados">
+            </div>
+            <div class="table">
+                <table>
+                    <thead>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>¿Confirmó?</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Daniel</td>
+                            <td>Franco Monsalve</td>
+                            <td>No</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <input type="button" value="Limpiar">
+            </div>
+        </div>
+    </div>
     <script src="../js/invitados.js"></script>
 </body>
 </html>
