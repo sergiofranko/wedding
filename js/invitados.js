@@ -1,4 +1,7 @@
-const URL = '/invitados';
+//const base = 'localhost:3000';
+const base = 'https://isabelysergioboda.herokuapp.com';
+
+const URL = `${base}/invitados`;
 
 function registarInvitado(event) {
     
@@ -89,7 +92,13 @@ function confirmarInvitado(id, nombre, apellido) {
     }
 
     fetch(URL, payload)
-        .then((response => response.json()))
-        .then(invitados => console.log(invitados))
+        .then((response =>  response.json()))
+        .then(response => {
+            const mensaje = (response.invitado.confirmar) ? 
+                "Gracias por aceptar, será un gusto tenerte con nosotros":
+                "Error con tu confirmación, por favor intenta de nuevo más tarde"
+
+            window.alert(mensaje);
+        })
         .catch(error => console.log(error))
 }
