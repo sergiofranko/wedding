@@ -1,4 +1,7 @@
-const URL = '/invitados';
+//const base = 'http://localhost:3000';
+const base = 'https://isabelysergioboda.herokuapp.com';
+
+const URL = `${base}/invitados`;
 
 function registarInvitado(event) {
     
@@ -25,8 +28,56 @@ function registarInvitado(event) {
     fetch(URL, payload)
         .then((response => response.json()))
         .then(invitados => console.log(invitados))
-        .catch(error => console.log(error))
+        .catch(error => console.error(error))
 }
+
+function fillGuestManagerTable(param) {
+    let endpoint;
+    if (param != 'todos') {
+        endpoint = URL + `/guestManager/${param}`;
+    } else {
+        endpoint = URL;
+    }
+    
+    const headers = { 'Content-Type': 'application/json' };
+    const init = {
+        method: 'GET',
+        headers,
+        mode: 'cors',
+        cache: 'default'
+    }
+
+    const tbody = document.querySelector('#body-result');
+
+    fetch(endpoint, init)
+        .then(response => response.json())
+        .then(invitados => {
+            invitados.forEach(invitado => {
+                let tr = document.createElement('tr');
+                tr.setAttribute('id', 'row-result');
+                let tdNombre = document.createElement('td');
+                let tdApellido = document.createElement('td');
+                let tdConfirmar = document.createElement('td');
+                tdNombre.appendChild(
+                    document.createTextNode(`${invitado.nombre}`)
+                );
+                tdApellido.appendChild(
+                    document.createTextNode(`${invitado.apellido}`)
+                );
+                let confirm = (invitado.confirmar) ? "Si" : "No";
+                tdConfirmar.appendChild(
+                    document.createTextNode(`${confirm}`)
+                );
+
+                tr.appendChild(tdNombre);
+                tr.appendChild(tdApellido);
+                tr.appendChild(tdConfirmar);
+
+                tbody.appendChild(tr);
+            });
+        })
+        .catch(error => console.error(error));
+} 
 
 function buscarInvitado(event) {
     const param = event.name.value;
@@ -40,8 +91,6 @@ function buscarInvitado(event) {
     }
 
     const tbody = document.querySelector('#body-result');
-    
-    
 
     fetch(`${URL}/${param}`, init)
         .then((response => response.json()))
@@ -66,7 +115,7 @@ function buscarInvitado(event) {
             });
 
         })
-        .catch(error => console.log(error));
+        .catch(error => console.error(error));
 
 }
 
@@ -89,7 +138,13 @@ function confirmarInvitado(id, nombre, apellido) {
     }
 
     fetch(URL, payload)
-        .then((response => response.json()))
-        .then(invitados => console.log(invitados))
-        .catch(error => console.log(error))
+        .then((response =>  response.json()))
+        .then(response => {
+            const mensaje = (response.invitado.confirmar) ? 
+                "Gracias por aceptar, será un gusto tenerte con nosotros":
+                "Error con tu confirmación, por favor intenta de nuevo más tarde"
+
+            window.alert(mensaje);
+        })
+        .catch(error => console.error(error))
 }
