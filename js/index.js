@@ -5,8 +5,9 @@ document.querySelector('.btn-menu').addEventListener('click', () => {
 function limpiarTabla() {
     const tbody = document.querySelector('#body-result');
     const trs = tbody.childNodes;
+    tbody.remo
     trs.forEach((result, index) => {
-        const tr = document.querySelector('#row-result');
+        console.log(index);const tr = document.querySelector('#row-result');
         tbody.removeChild(tr);
     });
     

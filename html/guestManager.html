@@ -29,9 +29,9 @@
         <div class="result">
             <h1>Invitados</h1>
             <div class="buttons">
-                <input type="button" class="btn-all" value="Todos">
-                <input type="button" class="btn-not" value="Sin Confirmar">
-                <input type="button" class="btn-yes" value="Confirmados">
+                <input type="button" class="btn-all" value="Todos" onclick="fillGuestManagerTable('todos')">
+                <input type="button" class="btn-not" value="Sin Confirmar" onclick="fillGuestManagerTable('false')">
+                <input type="button" class="btn-yes" value="Confirmados" onclick="fillGuestManagerTable('true')">
             </div>
             <div class="table">
                 <table>
@@ -40,18 +40,15 @@
                         <th>Apellido</th>
                         <th>¿Confirmó?</th>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>Daniel</td>
-                            <td>Franco Monsalve</td>
-                            <td>No</td>
-                        </tr>
+                    <tbody id="body-result">
+                        
                     </tbody>
                 </table>
-                <input type="button" value="Limpiar">
+                <input type="button" value="Limpiar" onclick="limpiarTabla()">
             </div>
         </div>
     </div>
     <script src="../js/invitados.js"></script>
+    <script src="../js/index.js"></script>
 </body>
 </html>
