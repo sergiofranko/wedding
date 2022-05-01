@@ -5,10 +5,11 @@ document.querySelector('.btn-menu').addEventListener('click', () => {
 function limpiarTabla() {
     const tbody = document.querySelector('#body-result');
     const trs = tbody.childNodes;
-    tbody.remo
-    trs.forEach((result, index) => {
-        console.log(index);const tr = document.querySelector('#row-result');
+    let control = trs.length-1;
+    while(control > 0) {
+        const tr = document.querySelector('#row-result');
         tbody.removeChild(tr);
-    });
+        control--;
+    };
     
 }
