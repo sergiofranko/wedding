@@ -103,14 +103,24 @@ function buscarInvitado(event) {
                 tdNombre.appendChild(
                     document.createTextNode(`${invitado.nombre} ${invitado.apellido}`)
                 );
-                let tdButton = document.createElement('td');
-                let button = document.createElement('input');
-                button.setAttribute('type', 'button');
-                button.setAttribute('value', 'Sí');
-                button.setAttribute('onclick', `confirmarInvitado(${invitado.id}, '${invitado.nombre}', '${invitado.apellido}')`);
-                tdButton.appendChild(button);
+                
                 tr.appendChild(tdNombre);
-                tr.appendChild(tdButton);
+
+                if (!invitado.confirmar) {
+                    let tdButton = document.createElement('td');
+                    let button = document.createElement('input');
+                    button.setAttribute('type', 'button');
+                    button.setAttribute('value', 'Sí');
+                    button.setAttribute('onclick', `confirmarInvitado(${invitado.id}, '${invitado.nombre}', '${invitado.apellido}')`);
+                    tdButton.appendChild(button);
+                    tr.appendChild(tdButton);
+                } else {
+                    let tdConfirmado = document.createElement('td');
+                    tdConfirmado.appendChild(
+                        document.createTextNode('Confirmado')
+                    );
+                    tr.appendChild(tdConfirmado);
+                }
                 tbody.appendChild(tr);
             });
 
