@@ -1,6 +1,8 @@
 //const base = 'http://localhost:3000';
 const base = 'https://isabelysergioboda.herokuapp.com';
 
+let idBuscados = [];
+
 const URL = `${base}/invitados`;
 
 function registarInvitado(event) {
@@ -97,31 +99,34 @@ function buscarInvitado(event) {
         .then(invitados => {
             
             invitados.forEach(invitado => {
-                let tr = document.createElement('tr');
-                tr.setAttribute('id', 'row-result');
-                let tdNombre = document.createElement('td');
-                tdNombre.appendChild(
-                    document.createTextNode(`${invitado.nombre} ${invitado.apellido}`)
-                );
-                
-                tr.appendChild(tdNombre);
-
-                if (!invitado.confirmar) {
-                    let tdButton = document.createElement('td');
-                    let button = document.createElement('input');
-                    button.setAttribute('type', 'button');
-                    button.setAttribute('value', 'Sí');
-                    button.setAttribute('onclick', `confirmarInvitado(${invitado.id}, '${invitado.nombre}', '${invitado.apellido}')`);
-                    tdButton.appendChild(button);
-                    tr.appendChild(tdButton);
-                } else {
-                    let tdConfirmado = document.createElement('td');
-                    tdConfirmado.appendChild(
-                        document.createTextNode('Confirmado')
+                if (!idBuscados.includes(invitado.id)) {
+                    idBuscados.push(invitado.id);
+                    let tr = document.createElement('tr');
+                    tr.setAttribute('id', 'row-result');
+                    let tdNombre = document.createElement('td');
+                    tdNombre.appendChild(
+                        document.createTextNode(`${invitado.nombre} ${invitado.apellido}`)
                     );
-                    tr.appendChild(tdConfirmado);
+                    
+                    tr.appendChild(tdNombre);
+
+                    if (!invitado.confirmar) {
+                        let tdButton = document.createElement('td');
+                        let button = document.createElement('input');
+                        button.setAttribute('type', 'button');
+                        button.setAttribute('value', 'Sí');
+                        button.setAttribute('onclick', `confirmarInvitado(${invitado.id}, '${invitado.nombre}', '${invitado.apellido}')`);
+                        tdButton.appendChild(button);
+                        tr.appendChild(tdButton);
+                    } else {
+                        let tdConfirmado = document.createElement('td');
+                        tdConfirmado.appendChild(
+                            document.createTextNode('Confirmado')
+                        );
+                        tr.appendChild(tdConfirmado);
+                    }
+                    tbody.appendChild(tr);
                 }
-                tbody.appendChild(tr);
             });
 
         })
@@ -155,6 +160,19 @@ function confirmarInvitado(id, nombre, apellido) {
                 "Error con tu confirmación, por favor intenta de nuevo más tarde"
 
             window.alert(mensaje);
+            window.location.href = "./home.htm";
         })
         .catch(error => console.error(error))
+}
+
+function limpiarTablaAsistencia() {
+    const tbody = document.querySelector('#body-result');
+    const trs = tbody.childNodes;
+    let control = trs.length-1;
+    while(control > 0) {
+        const tr = document.querySelector('#row-result');
+        tbody.removeChild(tr);
+        control--;
+    };
+    idBuscados = [];
 }
