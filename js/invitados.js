@@ -34,6 +34,8 @@ function registarInvitado(event) {
 }
 
 function fillGuestManagerTable(param) {
+    limpiarTablaAsistencia();
+    
     let endpoint;
     if (param != 'todos') {
         endpoint = URL + `/guestManager/${param}`;
@@ -51,15 +53,20 @@ function fillGuestManagerTable(param) {
 
     const tbody = document.querySelector('#body-result');
 
+    let contador = 1;
     fetch(endpoint, init)
         .then(response => response.json())
         .then(invitados => {
             invitados.forEach(invitado => {
                 let tr = document.createElement('tr');
                 tr.setAttribute('id', 'row-result');
+                let tdContador = document.createElement('td');
                 let tdNombre = document.createElement('td');
                 let tdApellido = document.createElement('td');
                 let tdConfirmar = document.createElement('td');
+                tdContador.appendChild(
+                    document.createTextNode(`${contador++}`)
+                );
                 tdNombre.appendChild(
                     document.createTextNode(`${invitado.nombre}`)
                 );
@@ -71,6 +78,7 @@ function fillGuestManagerTable(param) {
                     document.createTextNode(`${confirm}`)
                 );
 
+                tr.appendChild(tdContador);
                 tr.appendChild(tdNombre);
                 tr.appendChild(tdApellido);
                 tr.appendChild(tdConfirmar);
