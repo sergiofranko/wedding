@@ -120,9 +120,13 @@ body {
     background-color: #fdfcfc;
     color: #215e3f;
     margin: 5% auto;
-    width: 35%;
+    width: 80%;
     font-size: 25px;
     border-radius: 5px;
     border: #215e3f 1px solid;
     cursor: pointer;
+}
+
+.button-eliminar {
+    background-color: #000;
 }

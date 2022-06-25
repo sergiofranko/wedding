@@ -1,5 +1,5 @@
-//const base = 'http://localhost:3000';
-const base = 'https://isabelysergioboda.herokuapp.com';
+const base = 'http://localhost:3000';
+//const base = 'https://isabelysergioboda.herokuapp.com';
 
 let idBuscados = [];
 
@@ -35,7 +35,7 @@ function registarInvitado(event) {
 
 function fillGuestManagerTable(param) {
     limpiarTablaAsistencia();
-    
+
     let endpoint;
     if (param != 'todos') {
         endpoint = URL + `/guestManager/${param}`;
@@ -64,6 +64,14 @@ function fillGuestManagerTable(param) {
                 let tdNombre = document.createElement('td');
                 let tdApellido = document.createElement('td');
                 let tdConfirmar = document.createElement('td');
+                let tdButtonEliminar = document.createElement('td');
+                let button = document.createElement('input');
+                button.setAttribute('type', 'button');
+                button.setAttribute('value', 'Eliminar');
+                button.setAttribute('class', 'button-eliminar');
+                button.setAttribute('onclick', `eliminarInvitado(${invitado.id}, '${invitado.nombre}', '${invitado.apellido}')`);
+
+
                 tdContador.appendChild(
                     document.createTextNode(`${contador++}`)
                 );
@@ -77,11 +85,14 @@ function fillGuestManagerTable(param) {
                 tdConfirmar.appendChild(
                     document.createTextNode(`${confirm}`)
                 );
+                tdButtonEliminar.appendChild(button);
+
 
                 tr.appendChild(tdContador);
                 tr.appendChild(tdNombre);
                 tr.appendChild(tdApellido);
                 tr.appendChild(tdConfirmar);
+                tr.appendChild(tdButtonEliminar);
 
                 tbody.appendChild(tr);
             });
@@ -183,4 +194,29 @@ function limpiarTablaAsistencia() {
         control--;
     };
     idBuscados = [];
+}
+
+function eliminarInvitado(id, nombre, apelido) {
+
+    let endpoint = `${URL}/${id}`;
+    
+    const headers = { 'Content-Type': 'application/json' };
+    const payload = {
+        method: 'DELETE',
+        headers,
+        mode: 'cors',
+        cache: 'default'
+    }
+
+    fetch(endpoint, payload)
+        .then((response =>  response.json()))
+        .then(response => {
+            if (window.confirm(`¿'Desea eliminar a ${nombre} ${apelido} de la lista de invitados?`)) {
+                window.alert(`${nombre} ${apelido} eliminiado exitosamente`);
+                limpiarTablaAsistencia();
+            } else {
+                window.alert(`${nombre} ${apelido} no pudo ser eliminado`);
+            }
+        })
+        .catch(error => console.error(error))
 }
